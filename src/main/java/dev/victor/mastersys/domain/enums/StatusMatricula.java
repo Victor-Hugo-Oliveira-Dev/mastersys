@@ -1,4 +1,4 @@
-package domain.enums;
+package dev.victor.mastersys.domain.enums;
 
 public enum StatusMatricula {
     ATIVA, 

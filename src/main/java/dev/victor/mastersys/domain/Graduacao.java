@@ -1,4 +1,4 @@
-package domain;
+package dev.victor.mastersys.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "graduacoes")
-public class Graduação {
+public class Graduacao {
     
      @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +47,5 @@ public class Graduação {
     public void setModalidade(Modalidade modalidade) {
         this.modalidade = modalidade;
     }
-
-    
 
 }

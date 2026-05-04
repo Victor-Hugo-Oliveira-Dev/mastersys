@@ -1,4 +1,4 @@
-package domain;
+package dev.victor.mastersys.domain;
 
 import jakarta.persistence.*;
 
@@ -13,7 +13,7 @@ public class Modalidade {
 
     private String nome;
 
-    private Boolean ativo = true;
+    private Boolean ativa = true;
 
     public Long getId() {
         return id;
@@ -31,12 +31,14 @@ public class Modalidade {
         this.nome = nome;
     }
 
-    public Boolean getAtivo() {
-        return ativo;
+    public Boolean getAtiva() {
+        return ativa;
     }
 
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
+    public void setAtiva(Boolean ativa) {
+        this.ativa = ativa;
     }
+
+    
 
 }

@@ -1,7 +1,8 @@
-package domain;
+package dev.victor.mastersys.domain;
 
 import java.time.LocalDate;
-import domain.enums.StatusMatricula;
+
+import dev.victor.mastersys.domain.enums.StatusMatricula;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
