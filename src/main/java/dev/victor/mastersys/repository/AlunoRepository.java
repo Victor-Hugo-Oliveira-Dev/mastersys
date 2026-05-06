@@ -6,5 +6,6 @@ import dev.victor.mastersys.domain.Aluno;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long>{
     
-    
+    boolean existsByEmail(String email);
+
 }
