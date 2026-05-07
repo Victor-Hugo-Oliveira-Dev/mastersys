@@ -2,4 +2,55 @@
 
 ### Cadastrar aluno
 POST {{baseUrl}}/alunos
-Contet-Type: application/json
+Content-Type: application/json
+
+{
+    "nome": "Victor",
+    "dataNascimento": "2000-01-02",
+    "sexo": "M",
+    "telefone": "11999999999",
+    "celular": "11988888888",
+    "email": "victor@gmail.com",
+    "observacao": "Aluno exemplar",
+    "endereco": "Rua A",
+    "numero": "123",
+    "complemento": "Apto 101",
+    "bairro": "Centro",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01000-000"
+}
+
+### Listar alunos
+GET {{baseUrl}}/alunos
+
+### Listar alunos com paginacao
+GET {{baseUrl}}/alunos?page=0&size=10&sort=nome,asc
+
+### Buscar aluno por ID
+GET {{baseUrl}}/alunos/1
+
+### Atualizar aluno
+PUT {{baseUrl}}/alunos/1
+Content-Type: application/json
+
+{
+    "nome": "Victor Silva",
+    "dataNascimento": "2000-01-02",
+    "sexo": "M",
+    "telefone": "11999999999",
+    "celular": "11988888888",
+    "email": "victor@gmail.com",
+    "observacao": "Aluno exemplar",
+    "endereco": "Rua A",
+    "numero": "123",
+    "complemento": "Apto 101",
+    "bairro": "Centro",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01000-000"
+}
+
+### Deletar aluno
+DELETE {{baseUrl}}/alunos/1
+
