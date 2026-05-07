@@ -1,2 +1,5 @@
-URL http://localhost:8080
-GET https://
+@baseUrl = http://localhost:8080
+
+### Cadastrar aluno
+POST {{baseUrl}}/alunos
+Contet-Type: application/json
