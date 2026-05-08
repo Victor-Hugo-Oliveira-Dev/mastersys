@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.victor.mastersys.dto.AlunoRequest;
 import dev.victor.mastersys.dto.AlunoResponse;
 import dev.victor.mastersys.services.AlunoService;
+import jakarta.validation.Valid;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -29,7 +31,7 @@ public class AlunoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AlunoResponse cadastrar(@RequestBody AlunoRequest alunoRequest){
+    public AlunoResponse cadastrar(@RequestBody @Valid AlunoRequest alunoRequest){
         return alunoService.cadastrar(alunoRequest);
     }
     
@@ -42,7 +44,7 @@ public class AlunoController {
         return alunoService.buscarPorId(id);
     }
 
-    public AlunoResponse atualizar(@PathVariable Long id, @RequestBody AlunoRequest alunoRequest){
+    public AlunoResponse atualizar(@PathVariable Long id, @RequestBody @Valid AlunoRequest alunoRequest){
         return alunoService.atualizar(id, alunoRequest);
     }
 

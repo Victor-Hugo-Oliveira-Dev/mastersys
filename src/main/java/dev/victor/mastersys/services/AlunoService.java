@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import dev.victor.mastersys.domain.Aluno;
 import dev.victor.mastersys.dto.AlunoRequest;
 import dev.victor.mastersys.dto.AlunoResponse;
+import dev.victor.mastersys.exception.RegraNegocioException;
 import dev.victor.mastersys.repository.AlunoRepository;
 
 @Service
@@ -18,7 +19,7 @@ public class AlunoService {
 
     public AlunoResponse cadastrar(AlunoRequest request){
         if (request.email()!= null && alunoRepository.existsByEmail(request.email())){
-            throw new RuntimeException("Já existe um aluno cadastrado com esse email");
+            throw new RegraNegocioException("Já existe um aluno cadastrado com esse email");
         }
 
         Aluno aluno = request.toEntity();
@@ -48,6 +49,6 @@ public class AlunoService {
     }
 
     private Aluno buscarEntidadePorId(Long id){
-        return alunoRepository.findById(id).orElseThrow(()-> new RuntimeException("Aluno não encontrado!"));
+        return alunoRepository.findById(id).orElseThrow(()-> new RegraNegocioException("Aluno não encontrado!"));
     }
 }
