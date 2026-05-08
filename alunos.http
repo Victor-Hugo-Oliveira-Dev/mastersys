@@ -5,7 +5,7 @@ POST {{baseUrl}}/alunos
 Content-Type: application/json
 
 {
-    "nome": "Victor",
+    "nome": "Victor Silva",
     "dataNascimento": "2000-01-02",
     "sexo": "M",
     "telefone": "11999999999",
@@ -28,7 +28,7 @@ GET {{baseUrl}}/alunos
 GET {{baseUrl}}/alunos?page=0&size=10&sort=nome,asc
 
 ### Buscar aluno por ID
-GET {{baseUrl}}/alunos/1
+GET {{baseUrl}}/alunos/3
 
 ### Atualizar aluno
 PUT {{baseUrl}}/alunos/1
