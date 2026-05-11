@@ -54,3 +54,16 @@ Content-Type: application/json
 ### Deletar aluno
 DELETE {{baseUrl}}/alunos/1
 
+### Cadastrar aluno invalido
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+    "nome": "",
+    "dataNascimento": "2000-01-02",
+    "sexo": "M",
+    "telefone": "11999999999",
+    "celular": "11988888888",
+    "email": "victor@gmail.com"
+}   
+

@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -30,22 +31,21 @@ public class AlunoController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public AlunoResponse cadastrar(@RequestBody @Valid AlunoRequest alunoRequest){
-        return alunoService.cadastrar(alunoRequest);
+    public ResponseEntity<AlunoResponse> cadastrar(@RequestBody @Valid AlunoRequest alunoRequest){
+        return ResponseEntity.status(HttpStatus.CREATED).body(alunoService.cadastrar(alunoRequest));
     }
     
-    public Page<AlunoResponse> listar (Pageable pageable){
-        return alunoService.listar(pageable);
+    public ResponseEntity<Page<AlunoResponse>> listar (Pageable pageable){
+        return ResponseEntity.ok(alunoService.listar(pageable));
     }
 
     @GetMapping("/{id}")
-    public AlunoResponse buscarPorId(@PathVariable Long id){
-        return alunoService.buscarPorId(id);
+    public ResponseEntity<AlunoResponse> buscarPorId(@PathVariable Long id){
+        return ResponseEntity.ok(alunoService.buscarPorId(id));
     }
 
-    public AlunoResponse atualizar(@PathVariable Long id, @RequestBody @Valid AlunoRequest alunoRequest){
-        return alunoService.atualizar(id, alunoRequest);
+    public ResponseEntity<AlunoResponse> atualizar(@PathVariable Long id, @RequestBody @Valid AlunoRequest alunoRequest){
+        return ResponseEntity.ok(alunoService.atualizar(id, alunoRequest));
     }
 
     @DeleteMapping("/{id}")
