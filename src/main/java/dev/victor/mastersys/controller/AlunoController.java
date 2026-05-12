@@ -2,6 +2,8 @@ package dev.victor.mastersys.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import dev.victor.mastersys.dto.AlunoFiltroRequest;
 import dev.victor.mastersys.dto.AlunoRequest;
 import dev.victor.mastersys.dto.AlunoResponse;
 import dev.victor.mastersys.services.AlunoService;
@@ -35,8 +37,8 @@ public class AlunoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(alunoService.cadastrar(alunoRequest));
     }
     
-    public ResponseEntity<Page<AlunoResponse>> listar (Pageable pageable){
-        return ResponseEntity.ok(alunoService.listar(pageable));
+    public ResponseEntity<Page<AlunoResponse>> listar (AlunoFiltroRequest filtro, Pageable pageable){
+        return ResponseEntity.ok(alunoService.listar(filtro, pageable));
     }
 
     @GetMapping("/{id}")

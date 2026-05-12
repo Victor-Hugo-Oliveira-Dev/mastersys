@@ -4,10 +4,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 import dev.victor.mastersys.domain.Aluno;
+import dev.victor.mastersys.dto.AlunoFiltroRequest;
 import dev.victor.mastersys.dto.AlunoRequest;
 import dev.victor.mastersys.dto.AlunoResponse;
 import dev.victor.mastersys.exception.RegraNegocioException;
 import dev.victor.mastersys.repository.AlunoRepository;
+import dev.victor.mastersys.specification.AlunoSpecification;
 
 @Service
 public class AlunoService {
@@ -27,8 +29,8 @@ public class AlunoService {
         return AlunoResponse.fromEntity(alunoSalvo);
     }
 
-    public Page<AlunoResponse> listar(Pageable pageable){
-        return alunoRepository.findAll(pageable).map(AlunoResponse::fromEntity);
+    public Page<AlunoResponse> listar(AlunoFiltroRequest filtro, Pageable pageable){
+        return alunoRepository.findAll(AlunoSpecification.comFiltros(filtro), pageable).map(AlunoResponse::fromEntity);
     }
 
     public AlunoResponse buscarPorId(Long id){
