@@ -67,3 +67,9 @@ Content-Type: application/json
     "email": "victor@gmail.com"
 }   
 
+### Filtros de busca
+GET {{baseUrl}}/alunos?nome=Victor&cidade=São Paulo&estado=SP&page=0&size=10&sort=nome,asc
+
+### Listar todos os alunos sem filtros
+GET {{baseUrl}}/alunos?page=0&size=10&sort=nome,asc
+
