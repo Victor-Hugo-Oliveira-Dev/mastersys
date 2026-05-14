@@ -1,10 +1,11 @@
 package dev.victor.mastersys.projection;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public interface FaturasEmAbertoProjection {
     Long getMatriculaId();
     String getAlunoNome();
-    String getDataVencimento();
+    LocalDate getDataVencimento();
     BigDecimal getValor();
 }
